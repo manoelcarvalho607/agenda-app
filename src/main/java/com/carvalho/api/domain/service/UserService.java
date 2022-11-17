@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.carvalho.api.domain.model.Users;
-import com.carvalho.api.domain.repository.IScheduleRepository;
+
 import com.carvalho.api.domain.repository.IUserRepository;
 
 import lombok.AllArgsConstructor;

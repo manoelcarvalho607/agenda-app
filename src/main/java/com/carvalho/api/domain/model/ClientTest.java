@@ -3,7 +3,6 @@
  */
 package com.carvalho.api.domain.model;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,8 +27,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "tb_clients")
-public class Clients {
+@Table(name = "tb_clientstest")
+public class ClientTest {
 	
 	@EqualsAndHashCode.Include
 	@Id
@@ -41,16 +40,17 @@ public class Clients {
 	
 	@NotBlank
 	@Size(max=60)
-	@Column(name = "client_name")
+	@Column(name = "nome")
 	private String nome;
+	
 	@NotBlank
 	@Email
 	@Size(max=255)
-	@Column(name = "client_email")
+	@Column(name = "email")
 	private String email;
+	
 	@NotBlank
 	@Size(max=20)
-	@Column(name = "client_phone")
-	private String phone;
-
+	@Column(name = "fone")
+	private String fone;
 }

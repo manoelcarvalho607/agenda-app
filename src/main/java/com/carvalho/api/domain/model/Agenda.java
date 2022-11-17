@@ -3,10 +3,11 @@
  */
 package com.carvalho.api.domain.model;
 
+
+
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -15,6 +16,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -25,12 +29,13 @@ import lombok.Setter;
  *
  */
 
+
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name = "tb_schedules")
-public class Schedule {
+@Table(name = "tb_agenda")
+public class Agenda {
 	
 	@EqualsAndHashCode.Include
 	@Id
@@ -38,16 +43,23 @@ public class Schedule {
 	private Long id;
 	
 	@ManyToOne
-	private Clients client;
+	private ClientTest cliente;
 	
+	@JsonProperty(access = Access.READ_ONLY)
 	@Enumerated(EnumType.STRING)
 	private StatusSchedule status;
+	
+	@JsonProperty(access = Access.READ_ONLY)
 	@Column(name = "date_request")
 	private LocalDateTime dateScheduling;
+	
+	@JsonProperty(access = Access.READ_ONLY)
 	@Column(name = "date_finishing")
 	private LocalDateTime dateFinishing;
+	
 	@Column(name = "date_scheduling_client")
 	private String dateSchedulingClient;
+	
 	@Column(name = "time_scheduling_client")
 	private String timeSchedulingClient;
 

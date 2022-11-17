@@ -5,10 +5,7 @@ package com.carvalho.api.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,10 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-
-import com.carvalho.api.domain.model.Users;
-import com.carvalho.api.domain.repository.IUserRepository;
-import com.carvalho.api.domain.service.UserService;
+import com.carvalho.api.domain.model.Agenda;
+import com.carvalho.api.domain.repository.IAgendaRepository;
+import com.carvalho.api.domain.service.AgendaService;
 
 import lombok.AllArgsConstructor;
 
@@ -30,22 +26,21 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 @RestController
-@CrossOrigin("*")
-@RequestMapping("/users")
-public class UserController {
+@RequestMapping("/agendamento")
+public class AgendaController {
 	
-	private IUserRepository userRepository;
-	private UserService userService;
+	private IAgendaRepository agendaRepository;
+	private AgendaService agendaService;
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Users createUsers(@RequestBody Users user) {
-		return userService.createUser(user);
+	public Agenda createAgendamento(@RequestBody Agenda agenda) {
+		return agendaService.createAgenda(agenda);
 	}
 	
 	@GetMapping
-	public List<Users> readUsers() {
-		return userRepository.findAll();
+	public List<Agenda> readAgenda() {
+		return agendaRepository.findAll();
 	}
 
 }
