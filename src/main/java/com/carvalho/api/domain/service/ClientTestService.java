@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.carvalho.api.domain.exception.DomainException;
 import com.carvalho.api.domain.model.ClientTest;
 import com.carvalho.api.domain.repository.IClientTestRepository;
+import com.carvalho.api.domain.repository.IUserRepository;
 
 import lombok.AllArgsConstructor;
 
@@ -22,7 +23,7 @@ import lombok.AllArgsConstructor;
 public class ClientTestService {
 	
 	private IClientTestRepository clientTestRepository;
-	
+	private IUserRepository userRepository;
 	
 	public ClientTest search(Long clientId) {
 		return clientTestRepository.findById(clientId)
@@ -38,6 +39,9 @@ public class ClientTestService {
 		if (emailEmUso) {
 			throw new DomainException("Já existe um cliente cadastrado com esse e-mail.");
 		}
+		
+		
+		
 		return clientTestRepository.save(client);
 		
 	}

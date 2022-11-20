@@ -10,6 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -32,10 +35,17 @@ public class Users {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@NotNull
+	@NotBlank
 	@Column(name = "user_name")
 	private String nameUser;
+	@NotNull
+	@NotBlank
+	@Email
 	@Column(name = "user_email")
 	private String email;
+	@NotNull
+	@NotBlank
 	@Column(name = "user_phone")
 	private String phone;
 	

@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.carvalho.api.domain.exception.DomainException;
-import com.carvalho.api.domain.model.Agenda;
+import com.carvalho.api.domain.model.Schedule;
 import com.carvalho.api.domain.model.ClientTest;
 import com.carvalho.api.domain.model.StatusSchedule;
-import com.carvalho.api.domain.repository.IAgendaRepository;
+import com.carvalho.api.domain.repository.IScheduleRepository;
 import com.carvalho.api.domain.repository.IClientTestRepository;
 
 import lombok.AllArgsConstructor;
@@ -23,15 +23,15 @@ import lombok.AllArgsConstructor;
  */
 @AllArgsConstructor
 @Service
-public class AgendaService {
+public class ScheduleService {
 	
 	private ClientTestService clientTestService;
-	private IAgendaRepository agendaRepository;
+	private IScheduleRepository agendaRepository;
 	
 	
 	
 	@Transactional
-	public Agenda createAgenda(Agenda agenda) {
+	public Schedule createScheduling(Schedule agenda) {
 		ClientTest client = clientTestService.search(agenda.getCliente().getId());
 		
 		

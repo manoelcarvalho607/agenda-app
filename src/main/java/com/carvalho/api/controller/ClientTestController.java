@@ -34,7 +34,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/cliente")
+@RequestMapping("/clientes")
 public class ClientTestController {
 	
 	private ClientTestService clientTestService;
@@ -56,12 +56,6 @@ public class ClientTestController {
 		return clientTestRepository.findById(clienteId)
 				.map(ResponseEntity::ok)
 				.orElse(ResponseEntity.notFound().build());
-		
-//		Optional<Clients> client = clientRepository.findById(clientId);
-		//	if(client.isPresent()) {
-		//		return ResponseEntity.ok(client.get());
-		//	}
-		//	return ResponseEntity.notFound().build();
 	}
 	
 	@PutMapping("/{clienteId}")

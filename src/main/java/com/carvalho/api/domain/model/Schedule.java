@@ -16,7 +16,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.groups.ConvertGroup;
+import javax.validation.groups.Default;
 
+import com.carvalho.api.domain.IValidationGroups;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -35,13 +40,16 @@ import lombok.Setter;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "tb_agenda")
-public class Agenda {
+public class Schedule {
 	
 	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Valid
+	@ConvertGroup(from = Default.class, to = IValidationGroups.ClientTestId.class)
+	@NotNull
 	@ManyToOne
 	private ClientTest cliente;
 	
@@ -57,9 +65,10 @@ public class Agenda {
 	@Column(name = "date_finishing")
 	private LocalDateTime dateFinishing;
 	
+	@NotNull
 	@Column(name = "date_scheduling_client")
 	private String dateSchedulingClient;
-	
+	@NotNull
 	@Column(name = "time_scheduling_client")
 	private String timeSchedulingClient;
 
