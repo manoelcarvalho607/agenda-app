@@ -1,5 +1,5 @@
 ## Projeto agenda-app
-- Objetivo: realizar agendamento de cliente com data e hora, sendo esse cliente vinculado com um 
+- Objetivo: realizar agendamento de cliente com data e hora e status do agendamento, sendo esse cliente vinculado com um 
 usuário.
 
 ### Passos para executar a api
