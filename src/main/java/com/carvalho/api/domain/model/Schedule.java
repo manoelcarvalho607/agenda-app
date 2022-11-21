@@ -5,7 +5,8 @@ package com.carvalho.api.domain.model;
 
 
 
-import java.time.LocalDateTime;
+
+import java.time.OffsetDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -59,11 +60,11 @@ public class Schedule {
 	
 	@JsonProperty(access = Access.READ_ONLY)
 	@Column(name = "date_request")
-	private LocalDateTime dateScheduling;
+	private OffsetDateTime dateScheduling;
 	
 	@JsonProperty(access = Access.READ_ONLY)
 	@Column(name = "date_finishing")
-	private LocalDateTime dateFinishing;
+	private OffsetDateTime dateFinishing;
 	
 	@NotNull
 	@Column(name = "date_scheduling_client")

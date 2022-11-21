@@ -4,6 +4,7 @@
 package com.carvalho.api.domain.service;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,7 +38,7 @@ public class ScheduleService {
 		
 		agenda.setCliente(client);
 		agenda.setStatus(StatusSchedule.PENDENTE);
-		agenda.setDateScheduling(LocalDateTime.now());
+		agenda.setDateScheduling(OffsetDateTime.now());
 		
 		//implementar regras de uso. ex horário de disponivel p agendamento.
 		

@@ -3,7 +3,8 @@
  */
 package com.carvalho.api.exceptionhandler;
 
-import java.time.LocalDateTime;
+
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +45,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 		
 		
 		problem.setStatus(status.value());
-		problem.setDataHora(LocalDateTime.now());
+		problem.setDataHora(OffsetDateTime.now());
 		problem.setTitulo("Um ou mais campos estao inválidos. faça o preechimento correto e tente novamente.");
 		problem.setCampos(campos);
 		
@@ -57,7 +58,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 		
 		
 		problem.setStatus(status.value());
-		problem.setDataHora(LocalDateTime.now());
+		problem.setDataHora(OffsetDateTime.now());
 		problem.setTitulo(ex.getMessage());
 	
 		
